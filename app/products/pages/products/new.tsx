@@ -16,7 +16,9 @@ const NewProductPage: BlitzPage = () => {
         initialValues={{}}
         onSubmit={async () => {
           try {
-            const product = await createProductMutation({ data: { name: "MyName" } })
+            const product = await createProductMutation({
+              data: { name: "MyName", description: "MyDescription" },
+            })
             alert("Success!" + JSON.stringify(product))
             router.push("/products/[productId]", `/products/${product.id}`)
           } catch (error) {
