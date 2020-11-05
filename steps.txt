@@ -1,0 +1,22 @@
+1) npm i -g blitz
+2) blitz new project_name
+3) blitz db migrate
+4) blitz start
+5) blitz generate all product name:string
+6) blitz db migrate 
+7) git add . 
+8) git commit -m "text"
+
+open index.test.tsx
+and comment out 
+// jest.mock("app/hooks/useCurrentUser")
+// const mockUseCurrentUser = useCurrentUser as 
+everything in test.skip
+
+and in the bottom add 
+
+9) expect(true).toBe(true)
+10) Change package.json for the test like:  "test": "jest --runTestsByPath app/**/*.test.ts*"
+10) Change package.json for the test like:  "test:coverage": "jest --runTestsByPath app/**/*.test.ts* --coverage"
+
+11) blitz install tailwind
