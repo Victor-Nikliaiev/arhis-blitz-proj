@@ -1,37 +1,3 @@
-1) npm i -g blitz
-2) blitz new project_name
-3) blitz db migrate
-4) blitz start
-5) blitz generate all product name:string
-6) blitz db migrate 
-7) git add . 
-8) git commit -m "text"
-
-open index.test.tsx
-and comment out 
-// jest.mock("app/hooks/useCurrentUser")
-// const mockUseCurrentUser = useCurrentUser as 
-everything in test.skip
-
-and in the bottom add 
-
-9) expect(true).toBe(true)
-10) Change package.json for the test like:  "test": "jest --runTestsByPath app/**/*.test.ts*"
-10) Change package.json for the test like:  "test:coverage": "jest --runTestsByPath app/**/*.test.ts* --coverage"
-
-11) blitz install tailwind
-
-                            /// CYPRESS ///
-12) yarn add cypress
-13) npx cypress init
-14) npx cypress open
-
-open cypress.json and put next to there: 
-"baseUrl": "http://localhost:3000"
-
-15) Added some files: 
-  1. cypress/integration/login.spec.ts
-
 import { createRandomUser } from "../support/helpers"
 
 describe("index page", () => {
@@ -101,36 +67,3 @@ describe("index page", () => {
 })
 
 export {}
-
-2. cypress/index.d.ts
-
-  /// <reference types="Cypress" />
-/// <reference types="@cypress/skip-test" />
-
-declare namespace Cypress {
-  interface Chainable {
-    signup(user: { email: string; password: string }): void
-  }
-}
-
-3. cypress/support/commands.ts
-
-Cypress.Commands.add("signup", ({ email, password }) => {
-  cy.contains("a", "Sign Up").click()
-
-  cy.contains("Email").find("input").type(email)
-  cy.contains("Password").find("input").type(password)
-  cy.contains("button", "Create Account").click()
-})
-
-export {}
-
-4. cypress/support/helpers.ts
-
-export const createRandomUser = () => {
-  const random = Math.round(Math.random() * 100000).toString()
-  const email = `test_${random}@example.com`
-  const password = `password_${random}`
-
-  return { email, password }
-}
